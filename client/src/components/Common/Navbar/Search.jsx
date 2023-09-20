@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 
-const Search = () => {
+const Search = ({ product, setFilteredProduct }) => {
   const boxItems = ["pen", "computer", "mouse", "bat", "bowl"];
-  const [item, setItem] = useState();
 
-  const searchItems = boxItems.filter((boxItem) => {
-    return (boxItem.toLowerCase().includes(item.toLowerCase()));
-  });
-  console.log(searchItems, "serachItems");
+  const handleSearch = (e) => {
+    const searchText = e.target.value.toLowerCase();
+    const searchItems = product.filter((prod) =>
+      prod.productName.toLowerCase().includes(searchText)
+    );
+    setFilteredProduct(searchItems);
+  };
+
   return (
     <div>
       <label class="relative block">
@@ -20,9 +23,7 @@ const Search = () => {
           placeholder="Search for anything..."
           type="text"
           name="search"
-          onChange={(e) => {
-            setItem(e.target.value);
-          }}
+          onChange={handleSearch}
         />
       </label>
     </div>

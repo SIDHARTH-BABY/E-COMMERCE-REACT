@@ -3,9 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { signOut } from "supertokens-auth-react/recipe/thirdpartyemailpassword";
 import { useSessionContext } from "supertokens-auth-react/recipe/session";
 import { useEffect } from "react";
-import axios from "axios";
-import { getApiDomain } from "../../../config";
-import Search from "./Search";
 
 const Navbar = () => {
   const [openNav, setOpenNav] = useState(false);
@@ -41,9 +38,7 @@ const Navbar = () => {
             </span>
           </a>
           <div className="flex md:order-2">
-            <div className="mr-2">
-              {/* <Search /> */}
-            </div>
+            <div className="mr-2"></div>
             <button
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-00 font-medium rounded-lg text-sm px-4  text-center  md:mr-0 dark:bg-blue-600 dark::hover:bg-blue-700 dark:focus:ring-blue-800"
               onClick={() => {
