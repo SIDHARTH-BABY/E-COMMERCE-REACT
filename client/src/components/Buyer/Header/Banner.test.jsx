@@ -1,11 +1,17 @@
 import { describe, expect, it } from "vitest";
-import { Banner, prevSlide, nextSlide, goToSlide } from "./Banner";
+import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom/vitest";
+import Banner from "./Banner";
 
-
-describe("prev-sliding-carousal",()=>{
-    let slides=10
-    let currentIndex= 0
-    it("give 4",()=>{
-        expect(prevSlide(currentIndex,slides)).toBe(slides-1)
-    })
-})
+describe("Banner", () => {
+  it("checking if h1 inside banner component", () => {
+    render(<Banner />);
+    expect(screen.getByText("Hello"));
+  });
+  //
+//   it("checking if  span inside banner component", () => {
+//     render(<Banner />);
+//     expect(screen.getByTestId("span")).toBeInTheDocument()
+//   });
+//
+});
